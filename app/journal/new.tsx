@@ -74,7 +74,7 @@ export default function NewJournalEntryScreen() {
   const pickImage = async () => {
     try {
       const result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: [ImagePicker.MediaType.Images],
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
         allowsEditing: true,
         aspect: [4, 3],
         quality: 0.8,
@@ -204,7 +204,7 @@ export default function NewJournalEntryScreen() {
 
         {tripSteps.length > 0 && (
           <>
-            <Text style={styles.label}>Associer à une étape (optionnel)</Text>
+            <Text style={styles.label}>Associer à une étape </Text>
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.stepsScrollView}>
               <TouchableOpacity
                 style={[

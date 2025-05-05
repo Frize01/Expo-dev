@@ -7,8 +7,8 @@ import * as ImagePicker from 'expo-image-picker';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, Alert, Platform, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { addJournalMedia, deleteJournalMedia, getJournalEntryById, getJournalMediaByEntryId, getTripById, getTripSteps, JournalEntry, JournalMedia, TripStep, updateJournalEntry } from '../../lib/db';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { addJournalMedia, deleteJournalMedia, getJournalEntryById, getJournalMediaByEntryId, getTripById, getTripSteps, JournalEntry, JournalMedia, TripStep, updateJournalEntry } from '../../lib/db';
 
 export default function EditJournalEntryScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -270,7 +270,7 @@ export default function EditJournalEntryScreen() {
 
         {tripSteps.length > 0 && (
           <>
-            <Text style={styles.label}>Associer à une étape (optionnel)</Text>
+            <Text style={styles.label}>Associer à une étape </Text>
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.stepsScrollView}>
               <TouchableOpacity
                 style={[
@@ -284,7 +284,7 @@ export default function EditJournalEntryScreen() {
                   selectedStepId === null && styles.stepTextSelected
                 ]}>Aucune</Text>
               </TouchableOpacity>
-              
+
               {tripSteps.map(step => (
                 <TouchableOpacity
                   key={step.id}
